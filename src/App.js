@@ -5,62 +5,16 @@ import AppleIcon from './apple.svg';
 import './App.css';
 import ProductCard from "./ProductCard";
 import ProductDetails from "./ProductDetails";
-
-
-
+import myProducts from "./data/products";
 
 function App() {
-    const myProducts =
-        [
-            {
-                "id": 1,
-                "name": "iPhone 15",
-                "price": 1500,
-                "image": "https://i.ibb.co/J7q2v2f/1303-apple-iphone-15-pro-256gb-titanio-blanco-libre.jpg",
-                "description":"Placeholder text for the description of the product"
-            },
-            {
-                "id": 2,
-                "name": "iPad Pro",
-                "price": 1500,
-                "image": "https://i.ibb.co/5TwZngz/apple-ipad-pro-512gb-11.jpg",
-                "description":"Placeholder text for the description of the product"
-            },
-            {
-                "id": 3,
-                "name": "Macbook Pro",
-                "price": 1500,
-                "image": "https://img.pccomponentes.com/articles/66/663952/1726-apple-macbook-pro-apple-m1-max-32gb-1tb-ssd-162-gris-espacial.jpg",
-                "description":"Placeholder text for the description of the product"
-            },
-            {
-                "id": 4,
-                "name": "Apple Watch",
-                "price": 1500,
-                "image": "https://i.ibb.co/Jp7s4Mx/MT613ref-VW-34-FR-watch-49-titanium-ultra2-VW-34-FR-watch-face-49-trail-ultra2-VW-34-FR-1.png",
-                "description":"Placeholder text for the description of the product"
-            },
-            {
-                "id": 5,
-                "name": "Apple TV",
-                "price": 1500,
-                "image": "https://i.ibb.co/6WgmnTs/HQGK2.jpg",
-                "description":"Placeholder text for the description of the product"
-            },
-            {
-                "id": 6,
-                "name": "HomePod",
-                "price": 1500,
-                "image": "https://www.powerplanetonline.com/cdnassets/apple_homepod_2_altavoz_inteligente_blanco_04_ad_l.jpg",
-                "description":"Placeholder text for the description of the product"
-            }
-        ];
+
 
 
     const [isCartHovered, setCartHovered] = useState(false);
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
-
+    const [currentPage, setCurrentPage] = useState("Store");
     const getProducts = () => {
         setProducts(myProducts);
     }
@@ -72,6 +26,46 @@ function App() {
     useEffect(() => {
         getProducts();
     }, []);
+
+    const handleNavClick = (page) => {
+        setCurrentPage(page);
+        setSelectedProduct(null);
+    }
+
+    const navLinks = [
+        { page: "Home", label: "Home" },
+        { page: "Store", label: "Store" },
+        { page: "About", label: "About" },
+        { page: "Support", label: "Support" }
+    ];
+
+
+    const renderProducts = () => {
+        if (!selectedProduct) {
+            return products.length > 0 ? (
+                <div className="container">
+                    {products.map((product) => (
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                            onClick={() => handleProductClick(product)}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <div className="empty">
+                    <h2>No products found</h2>
+                </div>
+            );
+        } else {
+            return (
+                <div className="container">
+                    <ProductDetails product={selectedProduct} />
+                </div>
+            );
+        }
+    }
+
 
     return (
 
@@ -86,43 +80,51 @@ function App() {
                     />
                 </div>
                 <div className="nav-links">
-                    <a href="#" className="nav-link">Home</a>
-                    <a href="#" className="nav-link">Store</a>
-                    <a href="#" className="nav-link">About</a>
-                    <a href="#" className="nav-link">Support</a>
+                    {navLinks.map((link) => (
+                        <a key={link.page} href="#" className="nav-link" onClick={() => handleNavClick(link.page)}>
+                            {link.label}
+                        </a>
+                    ))}
                 </div>
                 <div className="cart">
-                <img
+                    <img
                         className="cart-icon"
-                        src= {isCartHovered ? CartHoverIcon : CartIcon}
+                        src={isCartHovered ? CartHoverIcon : CartIcon}
                         alt="Cart"
                         onMouseEnter={() => setCartHovered(true)}
                         onMouseLeave={() => setCartHovered(false)}
+                        onClick={() => setCurrentPage("Cart")}
                     />
                 </div>
             </div>
             {
-                !selectedProduct ? (
-                products?.length > 0
-                    ?(
+                currentPage === "Store" ? (
+                    !selectedProduct ? (
+                        renderProducts()
+                    ) : (
                         <div className="container">
-                            {products.map((product) => (
-                                <ProductCard key={product.id} product={product}
-                                onClick={() => {
-                                    handleProductClick(product);
-                                }}/>
-                            ))}
-                        </div>
-                    ) :
-                    (
-                        <div className="empty">
-                            <h2>No products found</h2>
+                            <ProductDetails product={selectedProduct}/>
                         </div>
                     )
-                ):(
-                    <div className="container">
-                        <ProductDetails product = {selectedProduct}/>
-                    </div>
+                ) : (
+                    currentPage === "Home" ? (
+                        <h2>Home</h2>
+                    ) : (
+                        currentPage === "About" ? (
+                            <h2>About</h2>
+                        ) : (
+                            currentPage === "Support" ? (
+                                <h2>Support</h2>
+                            ) : (
+                                currentPage === "Cart" ? (
+                                    <h2>Cart</h2>
+                                ) : (
+                                    <h2>404 Not Found</h2>
+                                )
+                            )
+                        )
+                    )
+
                 )
             }
         </div>
