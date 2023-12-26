@@ -1,12 +1,15 @@
 import React from 'react';
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, onClick}) => {
     return (
-        <div className="product">
+        <div className="product" onClick={onClick}>
             <div>
                 <img
                     className="product-image"
                     src={product.image} alt={product.name}
+                    onClick={() => {
+
+                    }}
                 />
             </div>
             <div>

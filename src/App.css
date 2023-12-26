@@ -99,3 +99,36 @@ html,body{
     font-weight: normal;
 
 }
+
+.product-image-container{
+    display: flex;
+    margin-top: -50px;
+    margin-left: 50px;
+}
+.product-image-detail {
+    width: 50%;
+}
+
+.product-details-container{
+    text-align: center;
+    margin-top: -50px;
+    margin-right: 210px;
+    margin-left: -210px;
+}
+
+.product-title-details{
+    font-weight: bold;
+    font-size: 70px;
+}
+
+.product-price-details{
+    margin-top: -30px;
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 30px;
+}
+
+.product-description-details{
+    font-weight: normal;
+    font-size: 20px;
+}
