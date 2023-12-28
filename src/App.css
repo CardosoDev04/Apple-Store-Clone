@@ -132,3 +132,30 @@ html,body{
     font-weight: normal;
     font-size: 15px;
 }
+
+.about-title{
+    font-size: 80px;
+    color: inherit;
+    margin-top: 250px;
+    text-align: center;
+    margin-bottom: 500px;
+}
+
+.title-black{
+    color: #000;
+}
+
+.title-gray {
+    color: #646464;
+}
+
+.about-description{
+    font-size: 30px;
+    text-align: center;
+    color: #000;
+    margin: 20px;
+}
+
+.first-description{
+    margin-top: 15px;
+}

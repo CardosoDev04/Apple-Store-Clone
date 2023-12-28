@@ -5,6 +5,7 @@ import AppleIcon from './apple.svg';
 import './App.css';
 import ProductCard from "./ProductCard";
 import ProductDetails from "./ProductDetails";
+import About from "./About";
 import myProducts from "./data/products";
 
 function App() {
@@ -111,7 +112,7 @@ function App() {
                         <h2>Home</h2>
                     ) : (
                         currentPage === "About" ? (
-                            <h2>About</h2>
+                            <About/>
                         ) : (
                             currentPage === "Support" ? (
                                 <h2>Support</h2>
