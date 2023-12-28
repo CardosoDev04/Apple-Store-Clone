@@ -77,7 +77,7 @@ function App() {
         <div className="app">
             <div className="navbar">
                 <div className="logo">
-                    <img
+                    <img onClick={() => handleNavClick("Home")}
                         className="apple-icon"
                         src={AppleIcon}
                         alt="Apple"
