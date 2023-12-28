@@ -7,6 +7,10 @@
 
 
 
+
+# Project URL
+<a href="https://apple-store-clone-ce1cc.web.app/#">Open the project on the web</a>
+
 This project was my first attempt at a creating a website using the React 18 library.
 It's a basic web page featuring:
 - An animated Home page
