@@ -41,7 +41,6 @@ function App() {
         { page: "Home", label: "Home" },
         { page: "Store", label: "Store" },
         { page: "About", label: "About" },
-        { page: "Support", label: "Support" }
     ];
 
 
@@ -91,16 +90,6 @@ function App() {
                         </a>
                     ))}
                 </div>
-                <div className="cart">
-                    <img
-                        className="cart-icon"
-                        src={isCartHovered ? CartHoverIcon : CartIcon}
-                        alt="Cart"
-                        onMouseEnter={() => setCartHovered(true)}
-                        onMouseLeave={() => setCartHovered(false)}
-                        onClick={() => setCurrentPage("Cart")}
-                    />
-                </div>
             </div>
             {
                 currentPage === "Store" ? (
@@ -118,18 +107,9 @@ function App() {
                         currentPage === "About" ? (
                             <About/>
                         ) : (
-                            currentPage === "Support" ? (
-                                <h2>Support</h2>
-                            ) : (
-                                currentPage === "Cart" ? (
-                                    <h2>Cart</h2>
-                                ) : (
-                                    <h2>404 Not Found</h2>
-                                )
-                            )
+                            "Error"
                         )
                     )
-
                 )
             }
         </div>
