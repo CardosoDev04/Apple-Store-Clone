@@ -6,6 +6,7 @@ import './App.css';
 import ProductCard from "./ProductCard";
 import ProductDetails from "./ProductDetails";
 import About from "./About";
+import Home from "./Home";
 import myProducts from "./data/products";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
     const [isCartHovered, setCartHovered] = useState(false);
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
-    const [currentPage, setCurrentPage] = useState("Store");
+    const [currentPage, setCurrentPage] = useState("Home");
 
     const aboutRef = useRef();
 
@@ -112,7 +113,7 @@ function App() {
                     )
                 ) : (
                     currentPage === "Home" ? (
-                        <h2>Home</h2>
+                        <Home/>
                     ) : (
                         currentPage === "About" ? (
                             <About/>

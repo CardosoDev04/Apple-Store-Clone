@@ -171,3 +171,31 @@ html,body{
 html{
     scroll-snap-type: y mandatory;
 }
+
+.new-product-image{
+    position: absolute;
+    top: 250px;
+    left:800px;
+
+    width: 50%;
+    height: 50%;
+}
+
+.new-product-details-container{
+    position: absolute;
+    top: 250px;
+    left:150px;
+    text-align: center;
+}
+
+.new-product-title{
+    font-weight: bold;
+    font-size: 72px;
+    margin-bottom: 10px;
+}
+
+.new-product-price{
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 30px;
+}
