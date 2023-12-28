@@ -3,8 +3,10 @@
 ![Website image](https://i.ibb.co/CWvd99w/Screenshot-2023-12-25-222140.png)
 
 This project was my first attempt at a creating a website using the React 18 library.
-It's a basic (but ever evolving) webpage that features a navbar, a store front with a product grid,
-a product details page and the still not made yet Home,About,Support and Cart pages.
+It's a basic web page featuring:
+- An animated Home page
+- An animated store page with a product grid
+- An animated about page
 
 
 ## Installation
