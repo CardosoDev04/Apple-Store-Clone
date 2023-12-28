@@ -19,6 +19,7 @@ html,body{
     display: flex;
     padding: 15px 30px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    scroll-snap-align: end;
 }
 .logo{
     display: flex;
@@ -133,6 +134,7 @@ html,body{
     font-size: 15px;
 }
 
+
 .about-title{
     font-size: 80px;
     color: inherit;
@@ -154,6 +156,7 @@ html,body{
     text-align: center;
     color: #000;
     margin: 20px;
+    scroll-snap-align: start;
 }
 
 .first-description{
@@ -163,4 +166,8 @@ html,body{
 
 .last-title {
     margin-bottom: 200px;
+}
+
+html{
+    scroll-snap-type: y mandatory;
 }

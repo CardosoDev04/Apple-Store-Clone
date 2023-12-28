@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import CartIcon from './cart.svg';
 import CartHoverIcon from './cart-hover.svg';
 import AppleIcon from './apple.svg';
@@ -16,6 +16,9 @@ function App() {
     const [products, setProducts] = useState([]);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [currentPage, setCurrentPage] = useState("Store");
+
+    const aboutRef = useRef();
+
     const getProducts = () => {
         setProducts(myProducts);
     }

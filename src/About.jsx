@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 
 import {useScroll, motion} from "framer-motion";
 
@@ -19,7 +19,9 @@ const About = () => {
     useScroll({
 
     });
+
     return (
+        <div className="scroll-snap-wrapper">
         <div className="about">
             <motion.h1
                 className="about-title"
@@ -39,6 +41,7 @@ const About = () => {
                     <FadeInTitle text="We are Apple."/>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
